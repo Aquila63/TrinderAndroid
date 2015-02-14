@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Trinder.iml" filepath="$PROJECT_DIR$/Trinder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TrinderAndroid.iml" filepath="$PROJECT_DIR$/TrinderAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
