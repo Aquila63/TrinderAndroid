@@ -14,7 +14,7 @@ public class Person {
     private String description;
     private String[] photoURLs;
 
-    Person() {
+    public Person() {
 
     }
 
