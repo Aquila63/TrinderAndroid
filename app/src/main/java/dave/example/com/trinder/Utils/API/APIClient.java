@@ -4,6 +4,7 @@ import android.provider.Contacts;
 import org.json.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.apache.http.Header;
 import com.loopj.android.http.*;
 
 import dave.example.com.trinder.Person;
