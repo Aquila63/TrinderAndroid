@@ -3,6 +3,9 @@
     <color name='primaryColor'>#2196F3</color>
     <color name='primaryColorDark'>#1565C0</color>
     <color name='accentColor'>#FF5252</color>
+    <color name='backgroundColor'>#EEEEEE</color>
+    <color name='cardColor'>#FFFFFF</color>
+    <color name='darkTextColor'>#000000</color>
 
 
 </resources>
