@@ -85,6 +85,11 @@ public class MainActivity extends ActionBarActivity {
                 Log.d("LIST", "notified");
                 i++;
             }
+            
+            @Override
+            public void onScroll(float scrollProgressPercent) {
+                
+            }
         });
 
 
