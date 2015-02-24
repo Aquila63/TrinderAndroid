@@ -7,7 +7,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -85,15 +83,14 @@ public class MainActivity extends ActionBarActivity {
                 Log.d("LIST", "notified");
                 i++;
             }
-            
+
             @Override
-            public void onScroll(float scrollProgressPercent) {
-                // do nothing
+            public void onScroll(float v) {
+
             }
         });
 
-
-        // Optionally add an OnItemClickListener
+            // Optionally add an OnItemClickListener
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {

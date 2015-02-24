@@ -3,6 +3,7 @@ package dave.example.com.trinder;
 /**
  * Created by Dave on 12/02/15.
  */
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -123,6 +124,6 @@ public class NavigationDrawerFragment extends Fragment implements Adapter.ClickL
 
     @Override
     public void itemClicked(View view, int position) {
-        startActivity(new Intent(getActivity(),Profile.class));
+        startActivity(new Intent(getActivity(),ProfileActivity.class));
     }
 }
