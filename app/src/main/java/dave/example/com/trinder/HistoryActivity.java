@@ -21,7 +21,7 @@ public class HistoryActivity extends ActionBarActivity {
 	//@InjectView(R.id.cardView) CardView cardView;
 	
 	@Override
-    protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         ButterKnife.inject(this);
