@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class MainActivity extends ActionBarActivity {
+public class HistoryActivity extends ActionBarActivity {
 
 	private Toolbar toolbar;
 	
