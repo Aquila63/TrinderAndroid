@@ -21,10 +21,14 @@
         >
         <!-- content view -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
+            android:id="@+id/helloText"
+            android:textSize="80sp"
+            android:textColor="@color/material_blue_grey_800"
+            android:gravity="top|center_horizontal"
+            android:layout_marginTop="50dp"
             tools:text="Trinder"
-            android:ems="30"/>
+            android:typeface="serif"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
     </LinearLayout>
 </LinearLayout>
