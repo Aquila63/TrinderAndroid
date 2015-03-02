@@ -1,31 +1,30 @@
 package dave.example.com.trinder;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
 
-import java.util.ArrayList;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.UiLifecycleHelper;
+import com.facebook.model.GraphUser;
+import com.facebook.widget.LoginButton;
+import com.facebook.widget.LoginButton.UserInfoChangedCallback;
+
 import java.util.Arrays;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-
-import com.facebook.widget.LoginButton;
-import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.widget.LoginButton.UserInfoChangedCallback;
-import com.facebook.model.GraphUser;
 
 
 
 public class LoginActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
+    private UiLifecycleHelper uiHelper;
 
     @InjectView(R.id.facebookButton) LoginButton facebookLoginButton;
 
@@ -38,10 +37,10 @@ public class LoginActivity extends ActionBarActivity {
         toolbar=(Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
-        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
-        drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
+        uiHelper = new UiLifecycleHelper(this,statusCallback);
+        uiHelper.onCreate((savedInstanceState));
 
-        facebookLoginButton.setReadPermissions(Arrays.asList("public_profie"));
+        facebookLoginButton.setReadPermissions(Arrays.asList("public_profile"));
         facebookLoginButton.setUserInfoChangedCallback(new UserInfoChangedCallback() {
             @Override
             public void onUserInfoFetched(GraphUser user) {
@@ -65,7 +64,35 @@ public class LoginActivity extends ActionBarActivity {
             }
         }
     };
+    @Override
+    public void onResume() {
+        super.onResume();
+        uiHelper.onResume();
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        uiHelper.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        uiHelper.onDestroy();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        uiHelper.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedState) {
+        super.onSaveInstanceState(savedState);
+        uiHelper.onSaveInstanceState(savedState);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
