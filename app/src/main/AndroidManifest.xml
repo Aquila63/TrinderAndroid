@@ -17,9 +17,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Profile"
+            android:name=".ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationID"
+            android:value="@string/APP_ID" />
     </application>
 
 </manifest>
