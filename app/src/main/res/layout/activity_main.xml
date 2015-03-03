@@ -1,3 +1,4 @@
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -5,6 +6,7 @@
     android:background="@color/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <!-- The toolbar -->
     <include
@@ -26,6 +28,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            
             <com.lorentzos.flingswipe.SwipeFlingAdapterView
                 android:id="@+id/frame"
                 android:background="@color/backgroundColor"
@@ -52,5 +55,7 @@
             android:name="dave.example.com.trinder.NavigationDrawerFragment"
             tools:layout="@layout/navigation_drawer_fragment"
             />
+
     </android.support.v4.widget.DrawerLayout>
+
 </LinearLayout>

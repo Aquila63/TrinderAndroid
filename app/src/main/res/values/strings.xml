@@ -9,5 +9,11 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="title_activity_profile">Profile</string>
-
+    <string name="name">Mike Ross</string>
+    <string name="relationship_status">Single</string>
+    <string name="course">Computer Science</string>
+    <string name="bio">Run the jewels is an American hip hop duo
+        , formed by rappers El-P and Killer Mike in 2013.
+        That same year, they released their sel...</string>
+    <string name="view_more">View More</string>
 </resources>
