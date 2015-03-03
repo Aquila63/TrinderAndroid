@@ -9,8 +9,10 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_verify_email">VerifyEmail</string>
     <string name="title_activity_login">Login</string>
     <string name="title_facebook_login">Login</string>
     <string name = "APP_ID">1538206829777589</string> >
+
 
 </resources>
