@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- may need to set height and width for SwipeView as not part of recycler view -->
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
@@ -13,73 +14,115 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_profile"
-            android:adjustViewBounds="true" />
-        <TextView
-            android:id="@+id/helloText"
-            android:textSize="40sp"
-            android:textColor="@color/darkTextColor"
-            android:background="@color/cardColor"
-            android:gravity="center"
-            android:layout_marginTop="200dp"
-            tools:text="@string/hello_world"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
-        <TextView
-            android:id="@+id/Name"
-            android:textSize="35sp"
-            android:textColor="@color/cardColor"
-            android:gravity="left"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="30dp"
-            tools:text="@string/name"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <TextView
-            android:id="@+id/RelationshipStatus"
-            android:textSize="20sp"
-            android:textColor="@color/backgroundColor"
-            android:gravity="left"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="150dp"
-            tools:text="@string/relationship_status"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <TextView
-            android:id="@+id/Course"
-            android:textSize="20sp"
-            android:textColor="@color/darkTextColor"
-            android:background="@color/cardColor"
-            android:gravity="left"
-            android:layout_marginTop="200dp"
-            tools:text="@string/course"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-        <TextView
-            android:id="@+id/Bio"
-            android:textSize="20sp"
-            android:textColor="@color/darkTextColor"
-            android:background="@color/cardColor"
-            android:gravity="left"
-            android:layout_marginTop="250dp"
-            tools:text="@string/bio"
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
-        <TextView
-            android:id="@+id/ViewMore"
-            android:textSize="20sp"
-            android:textColor="@color/accentColor"
-            android:background="@color/cardColor"
-            android:gravity="right"
-            android:layout_marginTop="360dp"
-            tools:text="@string/view_more"
-            android:layout_width="match_parent"
-            android:layout_height="25dp" />
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            android:orientation="vertical" >
+
+            <LinearLayout android:layout_width="match_parent"
+                android:id="@+id/image"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#192832"> <!-- change to drawable -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/helloText"
+                        android:textSize="35sp"
+                        android:textColor="@color/cardColor"
+                        android:gravity="left"
+                        tools:text="@string/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="40dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/relationship_status"
+                        android:textSize="20sp"
+                        android:textColor="@color/backgroundColor"
+                        android:gravity="left"
+                        tools:text="@string/relationship_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp">
+                    </TextView>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:id="@+id/details"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/course"
+                        android:textSize="20sp"
+                        android:textColor="@color/darkTextColor"
+                        android:background="@color/cardColor"
+                        android:gravity="left"
+                        tools:text="@string/course"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bio"
+                        android:textSize="20sp"
+                        android:textColor="@color/darkTextColor"
+                        android:background="@color/cardColor"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        tools:text="@string/bio"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"> <!-- preferably dynamic if possible -->
+                    </TextView>
+
+                    <!-- lazy way, use a shape for this horizontal line instead -->
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#CCCCCCFF" />
 
 
+                    <!-- this should be a button -->
+                    <TextView
+                        android:id="@+id/view_more"
+                        android:textSize="20sp"
+                        android:textColor="@color/accentColor"
+                        android:background="@color/cardColor"
+                        android:gravity="right"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        tools:text="@string/view_more"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp">
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
 </android.support.v7.widget.CardView>
