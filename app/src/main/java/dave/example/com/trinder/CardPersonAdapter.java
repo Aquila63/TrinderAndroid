@@ -14,7 +14,7 @@ public class CardPersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHo
     private int cardLayout;
     private Context mContext;
 
-    public CardPersonAdapter(List<People> people, int cardLayout, Context context) {
+    public CardPersonAdapter(Context context, int cardLayout, List<People> people) {
         this.people = people;
         this.cardLayout = cardLayout;
         this.mContext = context;
