@@ -1,4 +1,16 @@
-// lots of imports
+package dave.example.com.trinder;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.List;
 
 public class SwipeAdapter extends ArrayAdapter<Person> {
 
@@ -29,7 +41,7 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.card_view, null);
             holder.backgroundImageLayout = (LinearLayout) convertView.findViewById(R.id.image);
-            holder.name                  = (TextView)     convertVIew.findViewById(R.id.name);
+            holder.name                  = (TextView)     convertView.findViewById(R.id.name);
             holder.relationshipStatus    = (TextView)     convertView.findViewById(R.id.relationship_status);
             holder.course                = (TextView)     convertView.findViewById(R.id.course);
             holder.bio                   = (TextView)     convertView.findViewById(R.id.bio);

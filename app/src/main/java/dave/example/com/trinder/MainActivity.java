@@ -12,16 +12,19 @@ import android.widget.Toast;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import dave.example.com.trinder.Person;
+import dave.example.com.trinder.SwipeAdapter;
 
 public class MainActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
     private ArrayList<Person> people;
-    private SwipeAdapter<Person> swipeAdapter;
+    private SwipeAdapter swipeAdapter;
     private int i;
 
     @InjectView(R.id.frame) SwipeFlingAdapterView flingContainer;
@@ -39,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
         
-        people = Person.generateSample();
+        people = new ArrayList<Person>(Arrays.asList(Person.generateSample()));
         swipeAdapter = new SwipeAdapter(this, R.layout.card_view, people);
         flingContainer.setAdapter(swipeAdapter);
         
