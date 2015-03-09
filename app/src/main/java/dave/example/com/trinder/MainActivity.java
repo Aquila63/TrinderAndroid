@@ -7,7 +7,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -21,8 +20,8 @@ import butterknife.InjectView;
 public class MainActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
-    private ArrayList<String> al;
-    private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<Person> people;
+    private SwipeAdapter<Person> swipeAdapter;
     private int i;
 
     @InjectView(R.id.frame) SwipeFlingAdapterView flingContainer;
@@ -40,26 +39,18 @@ public class MainActivity extends ActionBarActivity {
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
         
-        al = new ArrayList<String>();
-        al.add("1");
-        al.add("2");
-        al.add("3");
-        al.add("4");
-        al.add("5");
-        al.add("6");
-        al.add("7");
-        al.add("8");
+        people = Person.generateSample();
 
-        arrayAdapter = new ArrayAdapter(this, R.layout.card_view, R.id.helloText, al);
+        swipeAdapter = new SwipeAdapter(this, R.layout.card_view, people);
         
-        flingContainer.setAdapter(arrayAdapter);
+        flingContainer.setAdapter(swipeAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
-                al.remove(0);
-                arrayAdapter.notifyDataSetChanged();
+                people.remove(0);
+                swipeAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -78,8 +69,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                al.add("XML ".concat(String.valueOf(i)));
-                arrayAdapter.notifyDataSetChanged();
+                //al.add("XML ".concat(String.valueOf(i)));
+                swipeAdapter.notifyDataSetChanged();
                 Log.d("LIST", "notified");
                 i++;
             }
