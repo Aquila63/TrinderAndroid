@@ -15,10 +15,12 @@ import java.util.List;
 public class SwipeAdapter extends ArrayAdapter<Person> {
 
     Context context;
+    int resourceId;
     
     public SwipeAdapter(Context context, int resourceId, List<Person> items) {
         super(context, resourceId, items);
         this.context = context;
+        this.resourceId = resourceId;
     }
     
     
@@ -39,7 +41,7 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.card_view, null);
+            convertView = mInflater.inflate(this.resourceId, null);
             holder = new ViewHolder();
             holder.backgroundImageLayout = (LinearLayout) convertView.findViewById(R.id.image);
             holder.name                  = (TextView)     convertView.findViewById(R.id.name);
