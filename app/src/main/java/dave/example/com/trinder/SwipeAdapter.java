@@ -42,12 +42,14 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         
         if (convertView == null) {
             convertView = mInflater.inflate(this.resourceId, null);
+            SwipeCardView cardView = (SwipeCardView) convertView.findViewById(R.id.card_view);
+            
             holder = new ViewHolder();
-            holder.backgroundImageLayout = (LinearLayout) convertView.findViewById(R.id.image);
-            holder.name                  = (TextView)     convertView.findViewById(R.id.name);
-            holder.relationshipStatus    = (TextView)     convertView.findViewById(R.id.relationship_status);
-            holder.course                = (TextView)     convertView.findViewById(R.id.course);
-            holder.bio                   = (TextView)     convertView.findViewById(R.id.bio);
+            holder.backgroundImageLayout = cardView.getBackgroundImageLayout();
+            holder.name                  = cardView.getNameTextView();
+            holder.relationshipStatus    = cardView.getRelationshipStatusTextView();
+            holder.course                = cardView.getCourseTextView();
+            holder.bio                   = cardView.getBioTextView();
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
