@@ -40,6 +40,7 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.card_view, null);
+            holder = new ViewHolder();
             holder.backgroundImageLayout = (LinearLayout) convertView.findViewById(R.id.image);
             holder.name                  = (TextView)     convertView.findViewById(R.id.name);
             holder.relationshipStatus    = (TextView)     convertView.findViewById(R.id.relationship_status);
