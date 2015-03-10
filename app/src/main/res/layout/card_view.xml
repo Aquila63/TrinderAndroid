@@ -101,9 +101,7 @@
                     android:layout_marginRight="15dp"
                     android:background="#CCCCCCFF" />
                 
-         
-                <!-- this should be a button -->
-                <TextView
+                <Button
                     android:id="@+id/view_more"
                     android:textSize="20sp"
                     android:textColor="@color/accentColor"
