@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
         drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
         
         people = new ArrayList<Person>(Arrays.asList(Person.generateSample()));
-        swipeAdapter = new SwipeAdapter(this, R.layout.card_view, people);
+        swipeAdapter = new SwipeAdapter(this, R.layout.swipe_view, people);
         flingContainer.setAdapter(swipeAdapter);
         
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
