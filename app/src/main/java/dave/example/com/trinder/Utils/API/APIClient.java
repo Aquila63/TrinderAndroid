@@ -92,6 +92,59 @@ class APIClient extends BaseClient {
     public void updateProfile(Person person) throws JSONException {
 
     }
+    
+    /*
+        Callback's true if user is part of valid group
+        Callback's false if user needs to verify email
+    */
+
+    public void authenticateWithFacebookAccessToken(String token, final Callback<Boolean> callback) throws JSONException {
+        RequestParams params = new RequestParams("token", token);
+        this.post("auth/facebook", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    callback.execute(response.getBoolean("success"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONArray matches) {
+                    // If the response is JSONArray instead of expected JSONObject. Throw exception?
+            }
+            // todo onFailure
+        });
+    }
+    
+    /*
+        Callback's true if verification email was sent
+        Callback's false if user cannot access app.
+    */
+
+    public void verifyEmail(String email, final Callback<Boolean> callback) throws JSONException {
+        RequestParams params = new RequestParams("email", lastSuccessfulMatchesTimestamp); // System.currentTimeMillis() can be changed by user. Maybe use something else?
+        this.post("auth/email", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    callback.execute(response.getBoolean("success"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray matches) {
+                // If the response is JSONArray instead of expected JSONObject. Throw exception?
+            }
+            // todo onFailure
+        });
+    }
+
+    public void checkIfPersonIsVerified(Person person, final Callback<Boolean> callback) throws JSONException {
+
+    }
 
     private Person[] parseArray(JSONArray matches) {
         Person[] people = new Person[matches.length()];
