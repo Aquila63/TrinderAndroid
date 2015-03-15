@@ -27,6 +27,7 @@ public class LoginActivity extends ActionBarActivity {
     private UiLifecycleHelper uiHelper;
 
     @InjectView(R.id.facebookButton) LoginButton facebookLoginButton;
+    @InjectView(R.id.progressSpinner) ProgressBar progressSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
