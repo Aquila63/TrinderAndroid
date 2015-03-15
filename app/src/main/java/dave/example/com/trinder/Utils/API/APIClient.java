@@ -82,8 +82,22 @@ class APIClient extends BaseClient {
             // todo onFailure
         });
     }
-    public void like(Person person, boolean didLike) throws JSONException {
-
+    public void like(Person person) throws JSONException {
+        this.get("users/" + person.id + "/like", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            }
+            // todo onFailure
+        });
+    }
+    
+    public void ignore(Person person) throws JSONException {
+        this.get("users/" + person.id + "/ignore", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            }
+            // todo onFailure
+        });
     }
 
     public void updateProfile(Person person) throws JSONException {
