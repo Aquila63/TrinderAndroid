@@ -21,6 +21,7 @@ public class VerifyEmailActivity extends ActionBarActivity {
     private Toolbar toolbar;
     @InjectView(R.id.emailField) TextView emailField;
     @InjectView(R.id.submitButton) Button submitButton;
+    @InjectView(R.id.progressSpinner) ProgressBar progressSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +31,21 @@ public class VerifyEmailActivity extends ActionBarActivity {
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
+        
+        progressSpinner.setVisibility(View.GONE);
     }
     
     @OnClick(R.id.submitButton)
     public void submit() {
         // start loading icon.
+        progressSpinner.setVisibility(View.VISIBLE);
         String email = emailField.getText();
         try {
             APIClient.getInstance().verifyEmail(email, new Callback<Boolean>() {
             public void execute(Boolean isValidEmail) {
                 if (isValidEmail) {
                     // tell user to verify. Start checking every 30 seconds. Stop loading icon.
+                    progressSpinner.setVisibility(View.GONE);
                     Timer timer = new Timer();
                     timer.schedule(new TimerTask() {
                          @Override
@@ -51,12 +56,14 @@ public class VerifyEmailActivity extends ActionBarActivity {
                 }
                 else {
                     // tell user they can't use app. Stop loading icon. 
+                    progressSpinner.setVisibility(View.GONE);
                 }
             } 
         });   
         }
         catch(JSONException e) {
             // Tell user to try again. Stop loading icon
+            progressSpinner.setVisibility(View.GONE);
         }
     }
     
