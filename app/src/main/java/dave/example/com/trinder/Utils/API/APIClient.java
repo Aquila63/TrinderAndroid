@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import org.apache.http.Header;
 import com.loopj.android.http.*;
 
+import java.utils.HashMap;
+
 import dave.example.com.trinder.Person;
 
 /**
@@ -104,7 +106,9 @@ class APIClient extends BaseClient {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    callback.execute(response.getBoolean("success"));
+                    String token = response.getString("accessToken");
+                    this.setAccessToken(token);
+                    callback.execute(response.getBoolean("didAuthenticate"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
