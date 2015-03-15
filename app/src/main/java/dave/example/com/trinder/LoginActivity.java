@@ -40,6 +40,8 @@ public class LoginActivity extends ActionBarActivity {
 
         uiHelper = new UiLifecycleHelper(this,statusCallback);
         uiHelper.onCreate((savedInstanceState));
+        
+        progressSpinner.setVisibility(View.GONE);
 
         facebookLoginButton.setReadPermissions(Arrays.asList("public_profile"));
         facebookLoginButton.setUserInfoChangedCallback(new UserInfoChangedCallback() {
@@ -63,6 +65,7 @@ public class LoginActivity extends ActionBarActivity {
                 // Get access token from session and send to API
                 // TODO: store trinder access token
                 // Start loading icon.
+                progressSpinner.setVisibility(View.VISIBLE);
                 try {
                     APIClient.getInstance().authenticateWithFacebookAccessToken(session.getAccessToken(), new Callback<Boolean>() {              
                         public void execute(Boolean didAuthenticate) {
@@ -80,6 +83,7 @@ public class LoginActivity extends ActionBarActivity {
                 }
                 catch(JSONException e) {
                     // tell user to try again. Stop loading icon.
+                    progressSpinner.setVisibility(View.GONE);
                 }
             } else if (state.isClosed()) {
                 Log.d("LoginActivity", "Facebook session closed.");
