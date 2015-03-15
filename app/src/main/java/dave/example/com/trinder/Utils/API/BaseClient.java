@@ -9,6 +9,8 @@ import com.loopj.android.http.*;
 public class BaseClient {
     private static final String BASE_URL = "http://trinder-api-paterson.c9.io/"; // for example
     private static final String DEFAULT_ACCESS_TOKEN = "bTmunLMfMu-J-Q";
+    
+    private String accessToken;
 
     BaseClient() {
 
@@ -29,6 +31,29 @@ public class BaseClient {
     }
 
     private String getAbsoluteUrl(String relativeUrl) {
-        return BASE_URL + relativeUrl + "?access_token=" + DEFAULT_ACCESS_TOKEN;
+        return BASE_URL + relativeUrl + "?access_token=" + getAccessToken();
+    }
+    
+    private String getAccessToken() {
+        if (accessToken == null) {
+            // get from shared preferences
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("preferences", 0);
+            accessToken = pref.getString("accessToken", null); // getting String
+        }
+        return accessToken;
+    }
+    
+    private String setAccessToken(String accessToken) {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("preferences", 0);
+        Editor editor = pref.edit();
+        editor.putString("accessToken", accessToken);
+        editor.commit();
+        accessToken = accessToken;
+    }
+    
+    // can be used to determine if user is logged in.
+    public boolean hasValidAccessToken() {
+        return accessToken != null;
+    }
     }
 }
