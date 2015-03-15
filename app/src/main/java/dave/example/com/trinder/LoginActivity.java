@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.content.Intent;
 
 import com.facebook.Session;
 import com.facebook.SessionState;
@@ -13,6 +14,8 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 import com.facebook.widget.LoginButton.UserInfoChangedCallback;
+
+import dave.example.com.trinder.Utils.API;
 
 import java.util.Arrays;
 
@@ -59,6 +62,20 @@ public class LoginActivity extends ActionBarActivity {
         public void call(Session session, SessionState state, Exception exception) {
             if (state.isOpened()) {
                 Log.d("LoginActivity", "Facebook session opened.");
+                // Get access token from session and send to API
+                // TODO: store trinder access token
+                APIClient.getInstance().authenticateWithFacebookAccessToken(session.getAccessToken(), new Callback<Boolean>() {
+                    public void execute(Boolean didAuthenticate) {
+                        if (!didAuthenticate) {
+                            // go to verify email activity
+                            Intent intent = new Intent(this, VerifyEmailActivity.class);
+                            startActivity(intent);
+                        }    
+                        else {
+                            // go to update profile activity
+                        }
+                    }
+                });
             } else if (state.isClosed()) {
                 Log.d("LoginActivity", "Facebook session closed.");
             }
