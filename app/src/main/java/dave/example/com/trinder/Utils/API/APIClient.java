@@ -146,8 +146,18 @@ class APIClient extends BaseClient {
         });
     }
 
-    public void checkIfPersonIsVerified(Person person, final Callback<Boolean> callback) throws JSONException {
-
+    public void checkIfCurrentUserIsVerified(final Callback<Boolean> callback) throws JSONException {
+        this.get("auth/verified", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    callback.execute(response.getBoolean("isVerified"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            // todo onFailure
+        });
     }
 
     private Person[] parseArray(JSONArray matches) {
