@@ -1,13 +1,8 @@
 package dave.example.com.trinder.Utils.API;
 
-import android.provider.Contacts;
 import org.json.*;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.apache.http.Header;
 import com.loopj.android.http.*;
-
-import java.utils.HashMap;
 
 import dave.example.com.trinder.Person;
 
