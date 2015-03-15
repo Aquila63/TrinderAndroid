@@ -80,13 +80,13 @@ public class Person {
 
     public void like() {
         // send off to API
-        //APIClient.getInstance().like(this, true);
+        APIClient.getInstance().like(this);
 
     }
 
     public void ignore() {
         // send off to API
-        //APIClient.getInstance().like(this, false);
+        APIClient.getInstance().ignore(this);
     }
 
     public static Person[] generateSample() {
