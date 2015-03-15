@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.TextView;
 
+import dave.example.com.trinder.Utils.API;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -28,11 +30,49 @@ public class VerifyEmailActivity extends ActionBarActivity {
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-
-        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
-        drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
-
+    }
+    
+    @OnClick(R.id.submitButton)
+    public void submit() {
+        // start loading icon.
+        String email = emailField.getText();
+        try {
+            APIClient.getInstance().verifyEmail(email, new Callback<Boolean>() {
+            public void execute(Boolean isValidEmail) {
+                if (isValidEmail) {
+                    // tell user to verify. Start checking every 30 seconds. Stop loading icon.
+                    Timer timer = new Timer();
+                    timer.schedule(new TimerTask() {
+                         @Override
+                        public void run() {
+                            this.checkIfVerified(); // might be wrong.
+                        }
+                    }, 0, 30000);
+                }
+                else {
+                    // tell user they can't use app. Stop loading icon. 
+                }
+            } 
+        });   
+        }
+        catch(JSONException e) {
+            // Tell user to try again. Stop loading icon
+        }
+    }
+    
+    private void checkIfVerified() {
+        try {
+            APIClient.getInstance().checkIfCurrentUserIsVerified(new Callback<Boolean>() {
+                public void execute(Boolean isVerified) {
+                    if (isVerified) {
+                        // go to update profile activity.
+                    }
+                } 
+            });
+        }
+        catch (JSONException e) {
+            // do nothing
+        }
     }
 
     @Override
