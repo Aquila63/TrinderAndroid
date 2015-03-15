@@ -21,8 +21,6 @@ import java.util.Arrays;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-
-
 public class LoginActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
@@ -63,18 +61,25 @@ public class LoginActivity extends ActionBarActivity {
                 Log.d("LoginActivity", "Facebook session opened.");
                 // Get access token from session and send to API
                 // TODO: store trinder access token
-                APIClient.getInstance().authenticateWithFacebookAccessToken(session.getAccessToken(), new Callback<Boolean>() {
-                    public void execute(Boolean didAuthenticate) {
-                        if (!didAuthenticate) {
-                            // go to verify email activity
-                            Intent intent = new Intent(this, VerifyEmailActivity.class);
-                            startActivity(intent);
-                        }    
-                        else {
-                            // go to update profile activity
+                // Start loading icon.
+                try {
+                    APIClient.getInstance().authenticateWithFacebookAccessToken(session.getAccessToken(), new Callback<Boolean>() {              
+                        public void execute(Boolean didAuthenticate) {
+                            if (!didAuthenticate) {
+                                // go to verify email activity
+                                Intent intent = new Intent(this, VerifyEmailActivity.class);
+                                startActivity(intent);
+                            }    
+                            else {
+                                // go to update profile activity if this is the first time using the app.
+                                // otherwise go to main activity
+                            }
                         }
-                    }
-                });
+                    });   
+                }
+                catch(JSONException e) {
+                    // tell user to try again. Stop loading icon.
+                }
             } else if (state.isClosed()) {
                 Log.d("LoginActivity", "Facebook session closed.");
             }
