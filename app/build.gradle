@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'maven'
 
 android {
     compileSdkVersion 21
@@ -19,6 +20,12 @@ android {
         debug {
             debuggable true
         }
+    }
+}
+
+repositories {
+    maven {
+          url "http://dl.bintray.com/patrick-nollet/maven"
     }
 }
 
