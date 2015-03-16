@@ -113,7 +113,8 @@ public class APIClient extends BaseClient {
 
     public void authenticateWithFacebookAccessToken(String token, final Context ctx, final Callback<Boolean> callback) throws JSONException {
         RequestParams params = new RequestParams("token", token);
-        this.post("auth/facebook", params, new JsonHttpResponseHandler() {
+        callback.execute(false);
+        /*this.post("auth/facebook", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
@@ -130,7 +131,7 @@ public class APIClient extends BaseClient {
                     // If the response is JSONArray instead of expected JSONObject. Throw exception?
             }
             // todo onFailure
-        });
+        });*/
     }
     
     /*

@@ -22,8 +22,8 @@
         </activity>
 
         <activity
-            android:name=".VerifyEmail"
-            android:label="@string/title_activity_verify_email" >
+            android:name=".VerifyEmailActivity"
+            android:label="Verify Email" >
         </activity>
 
         <activity

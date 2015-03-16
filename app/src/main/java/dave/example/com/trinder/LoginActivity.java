@@ -76,7 +76,7 @@ public class LoginActivity extends ActionBarActivity {
                 progressSpinner.setVisibility(View.VISIBLE);
                 try {
 
-                    APIClient.getInstance().authenticateWithFacebookAccessToken(session.getAccessToken(), new Callback<Boolean>() {              
+                    APIClient.getInstance().authenticateWithFacebookAccessToken(session.getAccessToken(), mActivity, new Callback<Boolean>() {
                         public void execute(Boolean didAuthenticate) {
                             if (!didAuthenticate) {
                                 // go to verify email activity
