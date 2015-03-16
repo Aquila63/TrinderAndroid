@@ -10,7 +10,7 @@ import dave.example.com.trinder.Person;
  * Created by npaters on 20/02/15.
  */
 
-class APIClient extends BaseClient {
+public class APIClient extends BaseClient {
     private static APIClient singletonInstance = null;
     long lastSuccessfulMatchesTimestamp = System.currentTimeMillis();
     protected APIClient() {

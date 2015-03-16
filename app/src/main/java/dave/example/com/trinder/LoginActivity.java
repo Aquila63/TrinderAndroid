@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 
+import android.view.View;
 import android.widget.ProgressBar;
 
 import com.facebook.Session;
@@ -16,7 +17,9 @@ import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 import com.facebook.widget.LoginButton.UserInfoChangedCallback;
 
-import dave.example.com.trinder.Utils.API;
+import org.json.JSONException;
+
+import dave.example.com.trinder.Utils.API.*;
 
 import java.util.Arrays;
 
@@ -27,6 +30,7 @@ public class LoginActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
     private UiLifecycleHelper uiHelper;
+    private ActionBarActivity mActivity;
 
     @InjectView(R.id.facebookButton) LoginButton facebookLoginButton;
     @InjectView(R.id.progressSpinner) ProgressBar progressSpinner;
@@ -36,6 +40,8 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
+        mActivity = this;
+
 
         toolbar=(Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -65,15 +71,16 @@ public class LoginActivity extends ActionBarActivity {
             if (state.isOpened()) {
                 Log.d("LoginActivity", "Facebook session opened.");
                 // Get access token from session and send to API
-                // TODO: store trinder access token
+                // TODO: store Trinder access token
                 // Start loading icon.
                 progressSpinner.setVisibility(View.VISIBLE);
                 try {
+
                     APIClient.getInstance().authenticateWithFacebookAccessToken(session.getAccessToken(), new Callback<Boolean>() {              
                         public void execute(Boolean didAuthenticate) {
                             if (!didAuthenticate) {
                                 // go to verify email activity
-                                Intent intent = new Intent(this, VerifyEmailActivity.class);
+                                Intent intent = new Intent(mActivity, VerifyEmailActivity.class);
                                 startActivity(intent);
                             }    
                             else {
