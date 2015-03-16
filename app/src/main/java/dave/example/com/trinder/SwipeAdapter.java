@@ -18,7 +18,7 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
     int resourceId;
     
     public SwipeAdapter(Context context, int resourceId, List<Person> items) {
-        super(context, resourceId, items);
+        super(context,R.layout.fragment_card_view, items);
         this.context = context;
         this.resourceId = resourceId;
     }
@@ -41,15 +41,15 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         
         if (convertView == null) {
-            convertView = mInflater.inflate(this.resourceId, null);
-            SwipeCardView cardView = (SwipeCardView) convertView.findViewById(R.id.card_view);
+            convertView = mInflater.inflate(R.layout.fragment_card_view, null);
+
             
             holder = new ViewHolder();
-            holder.backgroundImageLayout = cardView.getBackgroundImageLayout();
-            holder.name                  = cardView.getNameTextView();
-            holder.relationshipStatus    = cardView.getRelationshipStatusTextView();
-            holder.course                = cardView.getCourseTextView();
-            holder.bio                   = cardView.getBioTextView();
+            holder.backgroundImageLayout = (LinearLayout) convertView.findViewById(R.id.image);
+            holder.name                  = (TextView) convertView.findViewById(R.id.name);
+            holder.relationshipStatus    = (TextView) convertView.findViewById(R.id.relationship_status);
+            holder.course                = (TextView) convertView.findViewById(R.id.course);
+            holder.bio                   = (TextView) convertView.findViewById(R.id.bio);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();

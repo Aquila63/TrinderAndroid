@@ -17,9 +17,6 @@ import java.util.Arrays;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import dave.example.com.trinder.Person;
-import dave.example.com.trinder.SwipeAdapter;
-
 public class MainActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
@@ -43,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
         drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
         
         people = new ArrayList<Person>(Arrays.asList(Person.generateSample()));
-        swipeAdapter = new SwipeAdapter(this, R.layout.swipe_view, people);
+        swipeAdapter = new SwipeAdapter(this, R.layout.fragment_card_view, people);
         flingContainer.setAdapter(swipeAdapter);
         
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
