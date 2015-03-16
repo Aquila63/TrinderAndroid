@@ -1,5 +1,7 @@
 package dave.example.com.trinder.Utils.API;
 
+import android.content.Context;
+
 import org.json.*;
 import org.apache.http.Header;
 import com.loopj.android.http.*;
@@ -83,7 +85,7 @@ public class APIClient extends BaseClient {
         });
     }
     public void like(Person person) throws JSONException {
-        this.get("users/" + person.id + "/like", null, new JsonHttpResponseHandler() {
+        this.get("users/" + person.getId() + "/like", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
             }
@@ -92,7 +94,7 @@ public class APIClient extends BaseClient {
     }
     
     public void ignore(Person person) throws JSONException {
-        this.get("users/" + person.id + "/ignore", null, new JsonHttpResponseHandler() {
+        this.get("users/" + person.getId() + "/ignore", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
             }
@@ -109,14 +111,14 @@ public class APIClient extends BaseClient {
         Callback's false if user needs to verify email
     */
 
-    public void authenticateWithFacebookAccessToken(String token, final Callback<Boolean> callback) throws JSONException {
+    public void authenticateWithFacebookAccessToken(String token, final Context ctx, final Callback<Boolean> callback) throws JSONException {
         RequestParams params = new RequestParams("token", token);
         this.post("auth/facebook", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     String token = response.getString("accessToken");
-                    this.setAccessToken(token);
+                    setAccessToken(token, ctx);
                     callback.execute(response.getBoolean("didAuthenticate"));
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -156,7 +158,7 @@ public class APIClient extends BaseClient {
     }
 
     public void checkIfCurrentUserIsVerified(final Callback<Boolean> callback) throws JSONException {
-        this.get("auth/verified", params, new JsonHttpResponseHandler() {
+        this.get("auth/verified", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
