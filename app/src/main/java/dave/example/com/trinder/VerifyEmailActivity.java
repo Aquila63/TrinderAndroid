@@ -16,13 +16,12 @@ import org.json.JSONException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import butterknife.OnClick;
-import dave.example.com.trinder.Utils.API;
+
+import dave.example.com.trinder.Utils.API.*;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import dave.example.com.trinder.Utils.API.APIClient;
-import dave.example.com.trinder.Utils.API.Callback;
+import butterknife.OnClick;
 
 /**
  * Created by Dave on 03/03/15.
@@ -30,8 +29,7 @@ import dave.example.com.trinder.Utils.API.Callback;
 public class VerifyEmailActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
-    @InjectView(R.id.emailField)
-    EditText emailField;
+    @InjectView(R.id.emailField) EditText emailField;
     @InjectView(R.id.submitButton) Button submitButton;
     @InjectView(R.id.progressSpinner) ProgressBar progressSpinner;
 

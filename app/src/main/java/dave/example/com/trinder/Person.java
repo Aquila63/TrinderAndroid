@@ -1,5 +1,9 @@
 package dave.example.com.trinder;
 
+import org.json.JSONException;
+
+import dave.example.com.trinder.Utils.API.APIClient;
+
 /**
  * Created by Sofwat on 17/02/2015.
  */
@@ -80,13 +84,23 @@ public class Person {
 
     public void like() {
         // send off to API
-        APIClient.getInstance().like(this);
+        try {
+            APIClient.getInstance().like(this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
     public void ignore() {
         // send off to API
-        APIClient.getInstance().ignore(this);
+        try {
+            APIClient.getInstance().ignore(this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static Person[] generateSample() {

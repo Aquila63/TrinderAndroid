@@ -12,7 +12,8 @@
     <string name="title_activity_verify_email">VerifyEmail</string>
     <string name="title_activity_login">Login</string>
     <string name="title_facebook_login">Login</string>
-    <string name = "APP_ID">1538206829777589</string> >
-
+    <string name = "APP_ID">1538206829777589</string>
+    <string name = "email_hint">Email</string> >
+    <string name = "button_send">Submit</string> >
 
 </resources>
