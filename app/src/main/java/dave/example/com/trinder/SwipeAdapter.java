@@ -56,6 +56,19 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         }
         
         // set holder.backgroundImageLayout image
+        if (person.getPhotoUrls().length > 0) {
+            ShutterbugManager.getSharedImageManager(context).download(person.getPhotoUrls[0], new ShutterbugManagerListener() {
+                void onImageSuccess(ShutterbugManager imageManager, Bitmap bitmap, String url) {
+                    BitmapDrawable background = new BitmapDrawable(bitmap);
+                    holder.backgroundImageLayout.setBackgroundDrawable(background);
+                }
+                
+                void onImageFailure(ShutterbugManager imageManager, String url) {
+                    // todo
+                }
+            });
+        }
+        
         holder.name.setText(person.getName());
         holder.relationshipStatus.setText(person.getStatus());
         holder.course.setText(person.getCourse());
