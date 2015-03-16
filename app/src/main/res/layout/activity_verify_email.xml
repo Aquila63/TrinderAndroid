@@ -21,16 +21,28 @@
         android:gravity="center_horizontal|center_vertical"
         >
 
+        <TextView
+            android:id="@+id/errorMessage"
+            android:textSize="20sp"
+            android:textColor="@color/darkTextColor"
+            android:gravity="top|center_horizontal"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            tools:text="@string/errorMessage"
+            android:typeface="serif"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
         <EditText
             android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress" />
-
 
         <Button
             android:id="@+id/submitButton"
@@ -38,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
 
             android:text="@string/button_send" />
 
