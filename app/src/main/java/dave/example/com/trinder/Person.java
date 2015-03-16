@@ -96,6 +96,7 @@ public class Person {
         String[] courses = {"CSB", "CS", "BESS", "Law", "Science", "Medicine"};
         String[] statuses = {"Single", "In a relationship", "It's complecated", "Single", "In a relationship", "It's complecated"};
         String description = "Hi, I'm new to this, swipe right";
+        String[] demoImageUrls = {"http://robohash.org/demo.png?size=300x300"};
 
         for(int i=0; i<6; i++ ) {
             Person person = new Person();
@@ -105,6 +106,7 @@ public class Person {
             person.setCourse(courses[i]);
             person.setStatus(statuses[i]);
             person.setDescription(description);
+            person.setPhotoUrls(demoImageUrls);
             people[i] = person;
         }
         return people;
