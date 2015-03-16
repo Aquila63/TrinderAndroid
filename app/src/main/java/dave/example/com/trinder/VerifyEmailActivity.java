@@ -5,14 +5,22 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ProgressBar;
 
-import dave.example.com.trinder.Utils.API;
+import org.json.JSONException;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import dave.example.com.trinder.Utils.API.*;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Created by Dave on 03/03/15.
@@ -20,7 +28,7 @@ import butterknife.InjectView;
 public class VerifyEmailActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
-    @InjectView(R.id.emailField) TextView emailField;
+    @InjectView(R.id.emailField) EditText emailField;
     @InjectView(R.id.submitButton) Button submitButton;
     @InjectView(R.id.progressSpinner) ProgressBar progressSpinner;
 
@@ -40,7 +48,7 @@ public class VerifyEmailActivity extends ActionBarActivity {
     public void submit() {
         // start loading icon.
         progressSpinner.setVisibility(View.VISIBLE);
-        String email = emailField.getText();
+        String email = emailField.getText().toString();
         try {
             APIClient.getInstance().verifyEmail(email, new Callback<Boolean>() {
             public void execute(Boolean isValidEmail) {
@@ -51,7 +59,7 @@ public class VerifyEmailActivity extends ActionBarActivity {
                     timer.schedule(new TimerTask() {
                          @Override
                         public void run() {
-                            this.checkIfVerified(); // might be wrong.
+                            checkIfVerified();
                         }
                     }, 0, 30000);
                 }
