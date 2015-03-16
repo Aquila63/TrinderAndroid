@@ -72,7 +72,7 @@ public class Person {
         return photoURLs;
     }
 
-    public void setphotoURLs(String[] photoURLs) {
+    public void setPhotoURLs(String[] photoURLs) {
         this.photoURLs = photoURLs;
     }
 
@@ -106,7 +106,7 @@ public class Person {
             person.setCourse(courses[i]);
             person.setStatus(statuses[i]);
             person.setDescription(description);
-            person.setPhotoUrls(demoImageUrls);
+            person.setPhotoURLs(demoImageUrls);
             people[i] = person;
         }
         return people;

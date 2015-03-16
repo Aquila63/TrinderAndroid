@@ -2,6 +2,8 @@ package dave.example.com.trinder;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,8 +58,8 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         }
         
         // set holder.backgroundImageLayout image
-        if (person.getPhotoUrls().length > 0) {
-            ShutterbugManager.getSharedImageManager(context).download(person.getPhotoUrls[0], new ShutterbugManagerListener() {
+        if (person.getPhotoURLs().length > 0) {
+            ShutterbugManager.getSharedImageManager(context).download(person.getPhotoURLs()[0], new ShutterbugManagerListener() {
                 void onImageSuccess(ShutterbugManager imageManager, Bitmap bitmap, String url) {
                     BitmapDrawable background = new BitmapDrawable(bitmap);
                     holder.backgroundImageLayout.setBackgroundDrawable(background);
