@@ -41,7 +41,7 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.fragment_card_view, null);
+            convertView = mInflater.inflate(R.layout.fragment_card_view, parent, false);
 
             
             holder = new ViewHolder();

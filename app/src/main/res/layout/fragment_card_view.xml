@@ -1,6 +1,15 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="dave.example.com.trinder.CardViewFragment">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context="dave.example.com.trinder.CardViewFragment"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="15dp"
+    android:layout_width="330dp"
+    android:layout_height="400dp"
+    card_view:cardBackgroundColor="@color/cardColor"
+    card_view:cardCornerRadius="5dp">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,10 +35,9 @@
                     tools:text="@string/name"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="40dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp">
+                    android:layout_above="@+id/relationship_status"
+                    android:layout_alignLeft="@+id/relationship_status"
+                    android:layout_alignStart="@+id/relationship_status">
                 </TextView>
 
                 <TextView
