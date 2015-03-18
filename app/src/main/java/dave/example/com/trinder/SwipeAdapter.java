@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.applidium.shutterbug.utils.ShutterbugManager;
+
 import java.util.List;
 
 public class SwipeAdapter extends ArrayAdapter<Person> {
@@ -59,13 +61,14 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         
         // set holder.backgroundImageLayout image
         if (person.getPhotoURLs().length > 0) {
-            ShutterbugManager.getSharedImageManager(context).download(person.getPhotoURLs()[0], new ShutterbugManagerListener() {
-                void onImageSuccess(ShutterbugManager imageManager, Bitmap bitmap, String url) {
+            final ViewHolder finalHolder = holder;
+            ShutterbugManager.getSharedImageManager(context).download(person.getPhotoURLs()[0], new ShutterbugManager.ShutterbugManagerListener() {
+                public void onImageSuccess(ShutterbugManager imageManager, Bitmap bitmap, String url) {
                     BitmapDrawable background = new BitmapDrawable(bitmap);
-                    holder.backgroundImageLayout.setBackgroundDrawable(background);
+                    finalHolder.backgroundImageLayout.setBackgroundDrawable(background);
                 }
                 
-                void onImageFailure(ShutterbugManager imageManager, String url) {
+                public void onImageFailure(ShutterbugManager imageManager, String url) {
                     // todo
                 }
             });
