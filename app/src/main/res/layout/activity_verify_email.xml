@@ -42,7 +42,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:hint="@string/email_hint"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            app:baseColor="#000000" />
 
         <Button
             android:id="@+id/submitButton"
