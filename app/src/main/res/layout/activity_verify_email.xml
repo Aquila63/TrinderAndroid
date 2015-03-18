@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
