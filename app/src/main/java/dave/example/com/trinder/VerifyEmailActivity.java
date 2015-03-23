@@ -1,5 +1,6 @@
 package dave.example.com.trinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -32,6 +33,7 @@ public class VerifyEmailActivity extends ActionBarActivity {
     @InjectView(R.id.emailField) EditText emailField;
     @InjectView(R.id.submitButton) Button submitButton;
     @InjectView(R.id.progressSpinner) ProgressBar progressSpinner;
+    private ActionBarActivity mActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +84,9 @@ public class VerifyEmailActivity extends ActionBarActivity {
             APIClient.getInstance().checkIfCurrentUserIsVerified(new Callback<Boolean>() {
                 public void execute(Boolean isVerified) {
                     if (isVerified) {
-                        // go to update profile activity.
+                            // go to update profile activity.
+                        Intent intent = new Intent(mActivity, UpdateProfileActivity.class);
+                        startActivity(intent);
                     }
                 } 
             });
