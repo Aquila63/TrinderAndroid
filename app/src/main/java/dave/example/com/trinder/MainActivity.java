@@ -1,6 +1,7 @@
 package dave.example.com.trinder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -22,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
     private ArrayList<Person> people;
     private SwipeAdapter swipeAdapter;
+    private ActionBarActivity mActivity;
     private int i;
 
     @InjectView(R.id.frame) SwipeFlingAdapterView flingContainer;
@@ -31,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+        mActivity=this;
 
         toolbar=(Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -84,7 +87,9 @@ public class MainActivity extends ActionBarActivity {
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
-                makeToast(MainActivity.this, "Clicked!");
+                Intent intent = new Intent(mActivity, ProfileActivity.class);
+                intent.putExtra("Person", swipeAdapter.getItem(itemPosition));
+                startActivity(intent);
             }
         });
 

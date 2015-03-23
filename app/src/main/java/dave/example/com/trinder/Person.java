@@ -1,9 +1,12 @@
 package dave.example.com.trinder;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Sofwat on 17/02/2015.
  */
-public class Person {
+public class Person implements Parcelable{
 
 
     private int id;
@@ -17,7 +20,38 @@ public class Person {
     public Person() {
 
     }
+    public int describeContents() {
+        return 0;
+    }
+    private Person(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        course = in.readString();
+        age = in.readInt();
+        status = in.readString();
+        description = in.readString();
+        photoURLs = in.createStringArray();
+    }
+    // write your object's data to the passed-in Parcel
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(id);
+        out.writeString(name);
+        out.writeString(course);
+        out.writeInt(age);
+        out.writeString(status);
+        out.writeString(description);
+        out.writeStringArray(photoURLs);
+    }
 
+    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+    public static final Parcelable.Creator<Person> CREATOR = new Parcelable.Creator<Person>() {
+        public Person createFromParcel(Parcel in) {
+            return new Person(in);
+        }
+        public Person[] newArray(int size) {
+            return new Person[size];
+        }
+    };
     // setters, getters
 
     public int getId() {
