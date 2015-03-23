@@ -58,6 +58,8 @@ public class VerifyEmailActivity extends ActionBarActivity {
                 if (isValidEmail) {
                     // tell user to verify. Start checking every 30 seconds. Stop loading icon.
                     progressSpinner.setVisibility(View.GONE);
+                    Intent intent = new Intent(mActivity, UpdateProfileActivity.class); //TEMP*****
+                    startActivity(intent);                                              //END TEMP
                     Timer timer = new Timer();
                     timer.schedule(new TimerTask() {
                          @Override
@@ -78,22 +80,22 @@ public class VerifyEmailActivity extends ActionBarActivity {
             progressSpinner.setVisibility(View.GONE);
         }
     }
-    
+
     private void checkIfVerified() {
-        try {
-            APIClient.getInstance().checkIfCurrentUserIsVerified(new Callback<Boolean>() {
-                public void execute(Boolean isVerified) {
-                    if (isVerified) {
-                            // go to update profile activity.
-                        Intent intent = new Intent(mActivity, UpdateProfileActivity.class);
-                        startActivity(intent);
-                    }
-                } 
-            });
-        }
-        catch (JSONException e) {
-            // do nothing
-        }
+//        try {
+//            APIClient.getInstance().checkIfCurrentUserIsVerified(new Callback<Boolean>() {
+//                public void execute(Boolean isVerified) {
+//                    if (isVerified) {
+//                            // go to update profile activity.
+//                        Intent intent = new Intent(mActivity, UpdateProfileActivity.class);
+//                        startActivity(intent);
+//                    }
+//                }
+//            });
+//        }
+//        catch (JSONException e) {
+//            // do nothing
+//        }
     }
 
     @Override

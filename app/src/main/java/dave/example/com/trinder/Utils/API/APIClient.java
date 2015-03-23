@@ -140,7 +140,6 @@ public class APIClient extends BaseClient {
     */
 
     public void verifyEmail(String email, final Callback<Boolean> callback) throws JSONException {
-        RequestParams params = new RequestParams("token", token);
         callback.execute(true);
         /*RequestParams params = new RequestParams("email", lastSuccessfulMatchesTimestamp); // System.currentTimeMillis() can be changed by user. Maybe use something else?
         this.post("auth/email", params, new JsonHttpResponseHandler() {
