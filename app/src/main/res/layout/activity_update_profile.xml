@@ -13,15 +13,6 @@
         android:orientation="vertical"
         >
 
-        <Button
-            android:id="@+id/submitButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="25dp"
-            android:text="Change Profile Pictures" />
-
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/name"
             android:layout_width="match_parent"
@@ -49,5 +40,14 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:hint="Description"/>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="25dp"
+            android:text="Change Profile Pictures" />
     </LinearLayout>
 </LinearLayout>
