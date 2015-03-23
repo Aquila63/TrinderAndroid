@@ -45,6 +45,7 @@ public class VerifyEmailActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         
         progressSpinner.setVisibility(View.GONE);
+        mActivity = this;
     }
     
     @OnClick(R.id.submitButton)
