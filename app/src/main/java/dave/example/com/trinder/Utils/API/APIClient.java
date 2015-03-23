@@ -140,7 +140,9 @@ public class APIClient extends BaseClient {
     */
 
     public void verifyEmail(String email, final Callback<Boolean> callback) throws JSONException {
-        RequestParams params = new RequestParams("email", lastSuccessfulMatchesTimestamp); // System.currentTimeMillis() can be changed by user. Maybe use something else?
+        RequestParams params = new RequestParams("token", token);
+        callback.execute(true);
+        /*RequestParams params = new RequestParams("email", lastSuccessfulMatchesTimestamp); // System.currentTimeMillis() can be changed by user. Maybe use something else?
         this.post("auth/email", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -155,7 +157,7 @@ public class APIClient extends BaseClient {
                 // If the response is JSONArray instead of expected JSONObject. Throw exception?
             }
             // todo onFailure
-        });
+        });*/
     }
 
     public void checkIfCurrentUserIsVerified(final Callback<Boolean> callback) throws JSONException {
