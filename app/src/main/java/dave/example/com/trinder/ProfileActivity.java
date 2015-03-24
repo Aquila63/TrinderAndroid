@@ -24,6 +24,8 @@ public class ProfileActivity extends ActionBarActivity {
     @InjectView(R.id.relationship_status) TextView relationshipTextView;
     @InjectView(R.id.course) TextView courseTextView;
     @InjectView(R.id.bio) TextView bioTextView;
+    @InjectView(R.id.courseTitle) TextView courseTitleTextView;
+    @InjectView(R.id.aboutTitle) TextView aboutTitleTextView;
 
 
     @Override
@@ -56,6 +58,8 @@ public class ProfileActivity extends ActionBarActivity {
         relationshipTextView.setText(person.getStatus());
         courseTextView.setText(person.getCourse());
         bioTextView.setText(person.getDescription());
+        courseTitleTextView.setText("Course");
+        aboutTitleTextView.setText("About");
     }
 
 

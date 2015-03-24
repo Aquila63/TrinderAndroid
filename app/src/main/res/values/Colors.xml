@@ -6,6 +6,7 @@
     <color name='backgroundColor'>#EEEEEE</color>
     <color name='cardColor'>#FFFFFF</color>
     <color name='darkTextColor'>#000000</color>
+    <color name='titleColor'>#00E5FF</color>
 
 
 </resources>

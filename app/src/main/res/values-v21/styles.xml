@@ -10,6 +10,6 @@
     </style>
     <style name="transparentToolbarTheme" parent="MyCustomToolbarTheme">
         <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:fitsSystemWindows">true</item>
+
     </style>
 </resources>

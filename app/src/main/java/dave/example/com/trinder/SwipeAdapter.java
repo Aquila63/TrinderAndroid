@@ -35,6 +35,8 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         TextView relationshipStatus;
         TextView course;
         TextView bio;
+        TextView courseTitle;
+        TextView aboutTitle;
         Button viewMore;
     }
     
@@ -54,6 +56,8 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
             holder.relationshipStatus    = (TextView) convertView.findViewById(R.id.relationship_status);
             holder.course                = (TextView) convertView.findViewById(R.id.course);
             holder.bio                   = (TextView) convertView.findViewById(R.id.bio);
+            holder.courseTitle           = (TextView) convertView.findViewById(R.id.courseTitle);
+            holder.aboutTitle            = (TextView) convertView.findViewById(R.id.aboutTitle);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -78,6 +82,8 @@ public class SwipeAdapter extends ArrayAdapter<Person> {
         holder.relationshipStatus.setText(person.getStatus());
         holder.course.setText(person.getCourse());
         holder.bio.setText(person.getDescription());
+        holder.courseTitle.setText("Course");
+        holder.aboutTitle.setText("About");
         
         return convertView;
     }

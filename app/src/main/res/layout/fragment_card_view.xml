@@ -62,7 +62,18 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/courseTitle"
+                android:textSize="17sp"
+                android:textColor="@color/titleColor"
 
+                android:gravity="left"
+                tools:text="@string/courseTitle"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
             <TextView
                 android:id="@+id/course"
                 android:textSize="20sp"
@@ -74,7 +85,17 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp" />
-
+            <TextView
+                android:id="@+id/aboutTitle"
+                android:textSize="17sp"
+                android:textColor="@color/titleColor"
+                android:gravity="left"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                tools:text="@string/aboutTitle"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
             <TextView
                 android:id="@+id/bio"
                 android:textSize="20sp"

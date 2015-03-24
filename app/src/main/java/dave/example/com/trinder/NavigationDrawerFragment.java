@@ -65,8 +65,8 @@ public class NavigationDrawerFragment extends Fragment implements Adapter.ClickL
 
     public static List<Info> getData() {
         List<Info> data = new ArrayList<>();
-        int[] icons = {R.drawable.ic_perm_contact_cal_white_48dp, R.drawable.ic_home_white_48dp, R.drawable.ic_thumb_up_white_48dp, R.drawable.ic_restore_white_48dp,R.drawable.ic_settings_white_48dp, R.drawable.ic_supervisor_account_white_48dp, R.drawable.ic_info_outline_white_48dp};
-        String[] titles = {"Profile", "Home", "Matches", "History", "Settings", "Help", "Terms & Conditions"};
+        int[] icons = {R.drawable.ic_perm_contact_cal_white_48dp,R.drawable.ic_thumb_up_white_48dp, R.drawable.ic_restore_white_48dp,R.drawable.ic_settings_white_48dp};
+        String[] titles = {"Profile", "Matches", "History", "Settings"};
         for (int i = 0; i < titles.length && i < icons.length; i++) {
             Info current = new Info();
             current.iconId = icons[i];
