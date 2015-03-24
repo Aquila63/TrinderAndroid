@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import android.widget.Spinner;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -33,7 +35,6 @@ public class UpdateProfileActivity extends ActionBarActivity {
     @InjectView(R.id.profileImage)
     ImageView profilePicture;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,11 @@ public class UpdateProfileActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
 
         //progressSpinner.setVisibility(View.GONE);
+
+        Spinner dropdown = (Spinner)findViewById(R.id.gender);
+        String[] items = new String[]{"Male", "Female"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+        dropdown.setAdapter(adapter);
     }
 
     @OnClick(R.id.changePictureButton)
