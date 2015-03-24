@@ -63,13 +63,32 @@
             android:hint="Description"
             app:baseColor="#000000"/>
 
-        <Spinner
-            android:id="@+id/gender"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:prompt="@string/select_gender"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+            android:text="Select your gender"
+            android:textColor="@color/darkTextColor"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darkTextColor"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darkTextColor"
+                android:text="Female" />
+        </RadioGroup>
     </LinearLayout>
 </LinearLayout>

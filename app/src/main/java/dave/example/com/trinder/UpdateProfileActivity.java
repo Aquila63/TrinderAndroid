@@ -17,11 +17,20 @@ import android.widget.ImageView;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 /**
  * Created by Ciaran on 18/03/2015.
@@ -30,6 +39,8 @@ public class UpdateProfileActivity extends ActionBarActivity {
     private Toolbar toolbar;
     private static final int REQUEST_CODE = 1;
     private Bitmap bitmap;
+
+    private RadioGroup radioGroup;
     @InjectView(R.id.changePictureButton)
     Button changePictureButton;
     @InjectView(R.id.profileImage)
@@ -46,10 +57,20 @@ public class UpdateProfileActivity extends ActionBarActivity {
 
         //progressSpinner.setVisibility(View.GONE);
 
-        Spinner dropdown = (Spinner)findViewById(R.id.gender);
-        String[] items = new String[]{"Male", "Female"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
-        dropdown.setAdapter(adapter);
+        /* Initialize Radio Group and attach click handler */
+        radioGroup = (RadioGroup) findViewById(R.id.gender);
+        radioGroup.clearCheck();
+
+        /* Attach CheckedChangeListener to radio group */
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if(null!=rb && checkedId > -1){
+                    Toast.makeText(UpdateProfileActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @OnClick(R.id.changePictureButton)
