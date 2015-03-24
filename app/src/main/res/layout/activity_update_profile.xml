@@ -12,7 +12,6 @@
         layout="@layout/app_bar"
         />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,9 +19,9 @@
         >
 
         <ImageView android:id="@+id/profileImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:gravity="center"></ImageView>
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"></ImageView>
 
         <Button
             android:id="@+id/changePictureButton"
@@ -31,7 +30,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="25dp"
-            android:text="Change Profile Pictures" />
+            android:text="Change Profile Picture" />
 
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -51,7 +50,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:hint="Course"/>
+            android:hint="Course"
+            app:baseColor="#000000"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/descrField"
@@ -60,7 +60,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:hint="Description"/>
+            android:hint="Description"
+            app:baseColor="#000000"/>
 
         <Spinner
             android:id="@+id/gender"
