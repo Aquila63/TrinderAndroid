@@ -27,6 +27,11 @@
         </activity>
 
         <activity
+            android:name=".UpdateProfileActivity"
+            android:label="Update Profile" >
+        </activity>
+
+        <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
             <intent-filter>
