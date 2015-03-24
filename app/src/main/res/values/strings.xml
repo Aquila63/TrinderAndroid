@@ -16,5 +16,6 @@
     <string name = "email_hint">Email</string> >
     <string name = "button_send">Submit</string> >
     <string name = "errorMessage">Sorry, No can do</string> >
+    <string name = "select_gender">Gender</string> >
 
 </resources>

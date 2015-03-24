@@ -51,5 +51,13 @@
             android:layout_marginRight="30dp"
             android:hint="Description"/>
 
+        <Spinner
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_gender"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
     </LinearLayout>
 </LinearLayout>
