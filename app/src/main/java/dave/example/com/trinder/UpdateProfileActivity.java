@@ -65,10 +65,6 @@ public class UpdateProfileActivity extends ActionBarActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton rb = (RadioButton) group.findViewById(checkedId);
-                if(null!=rb && checkedId > -1){
-                    Toast.makeText(UpdateProfileActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
@@ -79,10 +75,6 @@ public class UpdateProfileActivity extends ActionBarActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton rb = (RadioButton) group.findViewById(checkedId);
-                if(null!=rb && checkedId > -1){
-                    Toast.makeText(UpdateProfileActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
-                }
             }
         });
     }

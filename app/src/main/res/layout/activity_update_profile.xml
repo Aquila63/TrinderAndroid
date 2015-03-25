@@ -44,6 +44,17 @@
             app:baseColor="#000000" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:hint="Age"
+            android:inputType="number"
+            app:baseColor="#000000" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/courseField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/darkTextColor"
-                android:text="Male" />
+                android:text="Men" />
 
             <RadioButton
                 android:id="@+id/females"
@@ -126,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/darkTextColor"
                 android:layout_marginLeft="40dp"
-                android:text="Female" />
+                android:text="Women" />
         </RadioGroup>
     </LinearLayout>
 </LinearLayout>
