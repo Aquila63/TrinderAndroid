@@ -80,12 +80,18 @@ public class UpdateProfileActivity extends ActionBarActivity {
     }
 
     @OnClick(R.id.changePictureButton)
-    public void submit() {
+    public void changePicture() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    @OnClick(R.id.submitButton)
+    public void submit() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 
