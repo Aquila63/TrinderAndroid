@@ -2,14 +2,18 @@ package dave.example.com.trinder;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -37,6 +41,8 @@ public class MainActivity extends ActionBarActivity {
 
         toolbar=(Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
+
+
 
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
@@ -92,6 +98,23 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.pink_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Clicked pink Floating Action Button", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        FloatingActionButton button = (FloatingActionButton) findViewById(R.id.pink_icon);
+        button.setSize(FloatingActionButton.SIZE_MINI);
+        button.setColorNormalResId(R.color.floatingActionButton);
+        button.setColorPressedResId(R.color.floatingActionButtonPressed);
+        button.setIcon(R.drawable.ic_info_outline_white_48dp);
+
+        ShapeDrawable drawable = new ShapeDrawable(new OvalShape());
+        drawable.getPaint().setColor(getResources().getColor(R.color.floatingActionButton));
+        button.setImageDrawable(drawable);
+
 
     }
     

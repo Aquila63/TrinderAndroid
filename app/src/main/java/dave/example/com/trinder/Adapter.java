@@ -61,26 +61,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
         public void onClick(View v) {
             if(clickListener!=null){
                 clickListener.itemClicked(v,getPosition());
-                /**Info info = data.get(getPosition());
-                ActionBarActivity activity = null;
-                Class klass = null;
-                switch(info.title) {
-                    case: "Matches" {
-                        klass = MatchesActivity;
-                        break;
-                    }
-                    case: "History" {
-                        klass = HistoryActivity;
-                        break;
-                    }
-                    default: {
-                        break;
-                    }
-                }
-
-                Intent intent = new Intent(this, klass);
-                startActivity(intent);
-                 */
             }
         }
     }

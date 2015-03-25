@@ -17,11 +17,14 @@
 
     <!-- drawer view -->
 
+
     <android.support.v4.widget.DrawerLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="450dp">
+
+
 
         <!-- normal content view -->
         <LinearLayout
@@ -29,7 +32,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            
             <com.lorentzos.flingswipe.SwipeFlingAdapterView
                 android:id="@+id/frame"
                 android:background="@color/backgroundColor"
@@ -42,22 +44,10 @@
                 />
 
             <!-- The rest of content view -->
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/pink_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                fab:fab_colorNormal="@color/floatingActionButton"
-                fab:fab_colorPressed="@color/floatingActionButtonPressed"
-                fab:fab_size="mini"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="16dp"
-                android:layout_gravity="right|bottom"
-                />
+
         </LinearLayout>
 
         <!-- drawer view -->
-
         <fragment
             android:id="@+id/fragment_navigation_drawer"
             android:layout_width="@dimen/nav_dp"
@@ -69,5 +59,17 @@
             />
 
     </android.support.v4.widget.DrawerLayout>
-
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pink_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/floatingActionButton"
+        fab:fab_colorPressed="@color/floatingActionButtonPressed"
+        fab:fab_size="mini"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="right|bottom"
+        />
 </LinearLayout>
+

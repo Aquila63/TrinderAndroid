@@ -127,6 +127,7 @@
         android:layout_height="match_parent"
         tools:context="dave.example.com.trinder">
 
+
         <include
             android:id="@+id/app_bar"
             layout="@layout/transparent_app_bar" />
