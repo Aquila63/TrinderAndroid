@@ -75,6 +75,7 @@
             android:id="@+id/gender"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
 
             android:orientation="horizontal">
@@ -88,6 +89,39 @@
 
             <RadioButton
                 android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darkTextColor"
+                android:layout_marginLeft="40dp"
+                android:text="Female" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Interested In"
+            android:textColor="@color/darkTextColor"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <RadioGroup
+            android:id="@+id/interestedIn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/males"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darkTextColor"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/females"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/darkTextColor"
