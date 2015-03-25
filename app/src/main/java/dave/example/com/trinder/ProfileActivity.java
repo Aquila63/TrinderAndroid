@@ -1,6 +1,5 @@
 package dave.example.com.trinder;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -82,7 +81,7 @@ public class ProfileActivity extends ActionBarActivity {
             return true;
         }
         if(id==android.R.id.home){
-            startActivity(new Intent(this, MainActivity.class));
+            this.finish();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,13 +1,11 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+
     android:background="@color/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
     <!-- The toolbar -->
     <include
@@ -29,31 +27,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            
-            <com.lorentzos.flingswipe.SwipeFlingAdapterView
-                android:id="@+id/frame"
-                android:background="@color/backgroundColor"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:rotation_degrees="15.5"
-                app:max_visible="4"
-                app:min_adapter_stack="6"
-                tools:context=".MyActivity"
-                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="330dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="match_parent" />
 
-            <!-- The rest of content view -->
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/pink_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                fab:fab_colorNormal="@color/floatingActionButton"
-                fab:fab_colorPressed="@color/floatingActionButtonPressed"
-                fab:fab_size="mini"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="16dp"
-                android:layout_gravity="right|bottom"
-                />
         </LinearLayout>
 
         <!-- drawer view -->
@@ -67,7 +46,5 @@
             android:name="dave.example.com.trinder.NavigationDrawerFragment"
             tools:layout="@layout/navigation_drawer_fragment"
             />
-
     </android.support.v4.widget.DrawerLayout>
-
 </LinearLayout>

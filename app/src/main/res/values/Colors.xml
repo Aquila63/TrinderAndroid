@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name='primaryColor'>#2196F3</color>
-    <color name='primaryColorDark'>#1565C0</color>
+    <color name='primaryColorDark'>#1976D2</color>
     <color name='accentColor'>#FF5252</color>
     <color name='backgroundColor'>#EEEEEE</color>
     <color name='cardColor'>#FFFFFF</color>
     <color name='darkTextColor'>#000000</color>
     <color name='titleColor'>#00E5FF</color>
+    <color name='floatingActionButton'>#FFEB3B</color>
+    <color name='floatingActionButtonPressed'>#FFE822</color>
 
 
 </resources>
