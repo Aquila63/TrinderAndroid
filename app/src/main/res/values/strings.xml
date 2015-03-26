@@ -21,4 +21,6 @@
     <string name="view_more">View More</string>
     <string name="courseTitle">Course</string>
     <string name="aboutTitle">About</string>
+    <string name="title_activity_new_matches">NewMatchesActivity</string>
+
 </resources>

@@ -101,7 +101,7 @@ public class MainActivity extends ActionBarActivity {
         findViewById(R.id.pink_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Clicked pink Floating Action Button", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(mActivity,NewMatchesActivity.class));
             }
         });
 
