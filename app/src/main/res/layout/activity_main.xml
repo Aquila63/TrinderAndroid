@@ -22,7 +22,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="450dp">
+        android:layout_height="match_parent">
 
 
 
@@ -32,18 +32,34 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.lorentzos.flingswipe.SwipeFlingAdapterView
-                android:id="@+id/frame"
-                android:background="@color/backgroundColor"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:rotation_degrees="15.5"
-                app:max_visible="4"
-                app:min_adapter_stack="6"
-                tools:context=".MyActivity"
-                />
+                >
+                <com.lorentzos.flingswipe.SwipeFlingAdapterView
+                    android:id="@+id/frame"
+                    android:background="@color/backgroundColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rotation_degrees="15.5"
+                    app:max_visible="4"
+                    app:min_adapter_stack="6"
+                    tools:context=".MyActivity"
+                    />
 
-            <!-- The rest of content view -->
+                <!-- The rest of content view -->
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/pink_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:fab_colorNormal="@color/floatingActionButton"
+                    fab:fab_colorPressed="@color/floatingActionButtonPressed"
+                    fab:fab_size="normal"
+                    android:layout_marginTop="425dp"
+                    android:layout_marginLeft="300dp"
+                    android:layout_gravity="right|bottom"
+                    />
+                </RelativeLayout>
 
         </LinearLayout>
 
@@ -59,17 +75,6 @@
             />
 
     </android.support.v4.widget.DrawerLayout>
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/pink_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        fab:fab_colorNormal="@color/floatingActionButton"
-        fab:fab_colorPressed="@color/floatingActionButtonPressed"
-        fab:fab_size="mini"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:layout_gravity="right|bottom"
-        />
+
 </LinearLayout>
 
