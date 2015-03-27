@@ -1,0 +1,136 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context="dave.example.com.trinder.CardViewFragment"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="15dp"
+    android:layout_width="330dp"
+    android:layout_height="400dp"
+    card_view:cardBackgroundColor="@color/cardColor"
+    card_view:cardCornerRadius="5dp">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2"
+        android:orientation="vertical" >
+
+        <LinearLayout android:layout_width="match_parent"
+            android:id="@+id/image"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#192832"> <!-- change to drawable -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:textSize="35sp"
+                    android:textColor="@color/cardColor"
+                    android:gravity="left"
+                    tools:text="@string/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/relationship_status"
+                    android:layout_alignLeft="@+id/relationship_status"
+                    android:layout_alignStart="@+id/relationship_status">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/relationship_status"
+                    android:textSize="20sp"
+                    android:textColor="@color/backgroundColor"
+                    android:gravity="left"
+                    tools:text="@string/relationship_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                </TextView>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+            android:id="@+id/details"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/courseTitle"
+                android:textSize="17sp"
+                android:textColor="@color/titleColor"
+
+                android:gravity="left"
+                tools:text="@string/courseTitle"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+            <TextView
+                android:id="@+id/course"
+                android:textSize="20sp"
+                android:textColor="@color/darkTextColor"
+                android:background="@color/cardColor"
+                android:gravity="left"
+                tools:text="@string/course"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+            <TextView
+                android:id="@+id/aboutTitle"
+                android:textSize="17sp"
+                android:textColor="@color/titleColor"
+                android:gravity="left"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                tools:text="@string/aboutTitle"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <TextView
+                android:id="@+id/bio"
+                android:textSize="20sp"
+                android:textColor="@color/darkTextColor"
+                android:background="@color/cardColor"
+                android:gravity="left"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                tools:text="@string/bio"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
+            <!-- lazy way, use a shape for this horizontal line instead -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#CCCCCCFF" />
+
+            <Button
+                android:id="@+id/view_more"
+                android:textSize="20sp"
+                android:textColor="@color/accentColor"
+                android:background="@color/cardColor"
+                android:gravity="right"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                tools:text="@string/view_more"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

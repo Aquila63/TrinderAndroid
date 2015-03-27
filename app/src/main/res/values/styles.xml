@@ -17,5 +17,7 @@
         <item name="android:textColorPrimary">#FFF</item>
         <item name="android:textColorSecondary">#FFF</item>
     </style>
+    <style name="transparentToolbarTheme" parent="MyCustomToolbarTheme">
 
+    </style>
 </resources>
