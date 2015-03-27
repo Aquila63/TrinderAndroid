@@ -10,8 +10,20 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_verify_email">VerifyEmail</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_facebook_login">Login</string>
     <string name="title_activity_history">History</string>
     <string name="title_activity_matches">Matches</string>
+    <string name="title_activity_new_matches">NewMatchesActivity</string>
+    <string name="APP_ID">1538206829777589</string>
+    <string name="email_hint">Email</string> >
+    <string name="button_send">Submit</string> >
+    <string name="errorMessage">Sorry, No can do</string> >
+    <string name="select_gender">Gender</string> >
+    <string name="male">Male</string> >
+    <string name="female">Female</string> >
+    
     <string name="name">Mike Ross</string>
     <string name="relationship_status">Single</string>
     <string name="course">Computer Science</string>
@@ -21,6 +33,6 @@
     <string name="view_more">View More</string>
     <string name="courseTitle">Course</string>
     <string name="aboutTitle">About</string>
-    <string name="title_activity_new_matches">NewMatchesActivity</string>
+   
 
 </resources>

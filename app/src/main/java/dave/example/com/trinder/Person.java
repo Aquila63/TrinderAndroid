@@ -1,5 +1,7 @@
 package dave.example.com.trinder;
 
+import org.json.JSONException;
+import dave.example.com.trinder.Utils.API.APIClient;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -114,13 +116,23 @@ public class Person implements Parcelable{
 
     public void like() {
         // send off to API
-        //APIClient.getInstance().like(this, true);
+        try {
+            APIClient.getInstance().like(this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
     public void ignore() {
         // send off to API
-        //APIClient.getInstance().like(this, false);
+        try {
+            APIClient.getInstance().ignore(this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static Person[] generateSample() {

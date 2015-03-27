@@ -1,9 +1,8 @@
 package dave.example.com.trinder.Utils.API;
 
-import android.provider.Contacts;
+import android.content.Context;
+
 import org.json.*;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.apache.http.Header;
 import com.loopj.android.http.*;
 
@@ -13,7 +12,7 @@ import dave.example.com.trinder.Person;
  * Created by npaters on 20/02/15.
  */
 
-class APIClient extends BaseClient {
+public class APIClient extends BaseClient {
     private static APIClient singletonInstance = null;
     long lastSuccessfulMatchesTimestamp = System.currentTimeMillis();
     protected APIClient() {
@@ -85,12 +84,93 @@ class APIClient extends BaseClient {
             // todo onFailure
         });
     }
-    public void like(Person person, boolean didLike) throws JSONException {
-
+    public void like(Person person) throws JSONException {
+        this.get("users/" + person.getId() + "/like", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            }
+            // todo onFailure
+        });
+    }
+    
+    public void ignore(Person person) throws JSONException {
+        this.get("users/" + person.getId() + "/ignore", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            }
+            // todo onFailure
+        });
     }
 
     public void updateProfile(Person person) throws JSONException {
 
+    }
+    
+    /*
+        Callback's true if user is part of valid group
+        Callback's false if user needs to verify email
+    */
+
+    public void authenticateWithFacebookAccessToken(String token, final Context ctx, final Callback<Boolean> callback) throws JSONException {
+        RequestParams params = new RequestParams("token", token);
+        callback.execute(false);
+        /*this.post("auth/facebook", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    String token = response.getString("accessToken");
+                    setAccessToken(token, ctx);
+                    callback.execute(response.getBoolean("didAuthenticate"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONArray matches) {
+                    // If the response is JSONArray instead of expected JSONObject. Throw exception?
+            }
+            // todo onFailure
+        });*/
+    }
+    
+    /*
+        Callback's true if verification email was sent
+        Callback's false if user cannot access app.
+    */
+
+    public void verifyEmail(String email, final Callback<Boolean> callback) throws JSONException {
+        callback.execute(true);
+        /*RequestParams params = new RequestParams("email", lastSuccessfulMatchesTimestamp); // System.currentTimeMillis() can be changed by user. Maybe use something else?
+        this.post("auth/email", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    callback.execute(response.getBoolean("success"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray matches) {
+                // If the response is JSONArray instead of expected JSONObject. Throw exception?
+            }
+            // todo onFailure
+        });*/
+    }
+
+    public void checkIfCurrentUserIsVerified(final Callback<Boolean> callback) throws JSONException {
+        this.get("auth/verified", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    callback.execute(response.getBoolean("isVerified"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            // todo onFailure
+        });
     }
 
     private Person[] parseArray(JSONArray matches) {
