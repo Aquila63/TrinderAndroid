@@ -3,6 +3,7 @@ package dave.example.com.trinder;
 /**
  * Created by Dave on 12/02/15.
  */
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -59,13 +60,14 @@ public class NavigationDrawerFragment extends Fragment implements Adapter.ClickL
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         return layout;
     }
 
     public static List<Info> getData() {
         List<Info> data = new ArrayList<>();
-        int[] icons = {R.drawable.ic_perm_contact_cal_white_48dp, R.drawable.ic_home_white_48dp, R.drawable.ic_thumb_up_white_48dp, R.drawable.ic_restore_white_48dp,R.drawable.ic_settings_white_48dp, R.drawable.ic_supervisor_account_white_48dp, R.drawable.ic_info_outline_white_48dp};
-        String[] titles = {"Profile", "Home", "Matches", "History", "Settings", "Help", "Terms & Conditions"};
+        int[] icons = {R.drawable.ic_perm_contact_cal_white_48dp,R.drawable.ic_home_white_48dp,R.drawable.ic_thumb_up_white_48dp, R.drawable.ic_restore_white_48dp,R.drawable.ic_settings_white_48dp};
+        String[] titles = {"Profile","Home","Matches", "History", "Settings"};
         for (int i = 0; i < titles.length && i < icons.length; i++) {
             Info current = new Info();
             current.iconId = icons[i];
@@ -123,6 +125,22 @@ public class NavigationDrawerFragment extends Fragment implements Adapter.ClickL
 
     @Override
     public void itemClicked(View view, int position) {
-        startActivity(new Intent(getActivity(),Profile.class));
+        switch (position) {
+            case 0:
+                //startActivity(new Intent(getActivity(),ProfileActivity.class));
+                break;
+            case 1:
+                startActivity(new Intent(getActivity(),MainActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(getActivity(),MatchesActivity.class));
+                break;
+            case 3:
+                startActivity(new Intent(getActivity(),HistoryActivity.class));
+                break;
+
+            default:
+                break;
+        }
     }
 }

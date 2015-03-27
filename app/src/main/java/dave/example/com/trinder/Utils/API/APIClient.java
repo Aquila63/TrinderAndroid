@@ -113,7 +113,7 @@ class APIClient extends BaseClient {
                     photos[j] = jsonArray.get(j).toString();
                 }
 
-                p.setphotoURLs(photos); // this mightn't work
+                p.setPhotoURLs(photos); // this mightn't work
                 people[i] = p;
             }
         }

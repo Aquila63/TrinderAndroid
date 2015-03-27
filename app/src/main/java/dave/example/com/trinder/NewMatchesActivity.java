@@ -1,32 +1,32 @@
 package dave.example.com.trinder;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class Profile extends ActionBarActivity {
+public class NewMatchesActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_new_matches);
         Toolbar toolbar= (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        getMenuInflater().inflate(R.menu.menu_new_matches, menu);
         return true;
     }
 
@@ -38,13 +38,11 @@ public class Profile extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
         if(id==android.R.id.home){
-            startActivity(new Intent(this, MainActivity.class));
+            this.finish();
         }
+
         return super.onOptionsItemSelected(item);
     }
-
 }
